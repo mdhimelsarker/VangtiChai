@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- Spacing & Margins -->
+    <dimen name="margin_tiny">2dp</dimen>
+    <dimen name="margin_small">4dp</dimen>
+    <dimen name="margin_medium">8dp</dimen>
+    <dimen name="margin_normal">12dp</dimen>
+    <dimen name="margin_large">16dp</dimen>
+    <dimen name="margin_xlarge">24dp</dimen>
+
+    <!-- Padding -->
+    <dimen name="padding_tiny">2dp</dimen>
+    <dimen name="padding_small">4dp</dimen>
+    <dimen name="padding_medium">8dp</dimen>
+    <dimen name="padding_normal">12dp</dimen>
+    <dimen name="padding_large">16dp</dimen>
+
+    <!-- Typography Text Sizes -->
+    <dimen name="text_size_app_title">20sp</dimen>
+    <dimen name="text_size_taka_display">22sp</dimen>
+    <dimen name="text_size_denom_label">18sp</dimen>
+    <dimen name="text_size_keypad_btn">20sp</dimen>
+
+    <!-- Keypad Button Dimensions -->
+    <dimen name="keypad_btn_height">52dp</dimen>
+    <dimen name="keypad_btn_height_land">44dp</dimen>
+    <dimen name="keypad_btn_radius">4dp</dimen>
+    <dimen name="header_bar_height">56dp</dimen>
+</resources>

@@ -1,0 +1,475 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/background_main"
+    tools:context=".MainActivity">
+
+    <!-- Top App Header Bar -->
+    <FrameLayout
+        android:id="@+id/headerBar"
+        android:layout_width="0dp"
+        android:layout_height="@dimen/header_bar_height"
+        android:background="@color/bdt_green_header"
+        android:paddingStart="@dimen/padding_large"
+        android:paddingEnd="@dimen/padding_large"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <TextView
+            android:id="@+id/tvAppTitle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_vertical"
+            android:text="@string/app_name"
+            android:textColor="@color/text_white"
+            android:textSize="@dimen/text_size_app_title"
+            android:textStyle="bold" />
+    </FrameLayout>
+
+    <!-- Center Amount Display (Taka: 6880) -->
+    <LinearLayout
+        android:id="@+id/layoutAmountDisplay"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/margin_normal"
+        android:gravity="center"
+        android:orientation="horizontal"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/headerBar">
+
+        <TextView
+            android:id="@+id/tvLabelTaka"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/label_taka"
+            android:textColor="@color/text_primary"
+            android:textSize="@dimen/text_size_taka_display"
+            android:textStyle="normal" />
+
+        <TextView
+            android:id="@+id/tvAmount"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/margin_small"
+            android:text="@string/label_amount_default"
+            android:textColor="@color/text_primary"
+            android:textSize="@dimen/text_size_taka_display"
+            android:textStyle="normal" />
+    </LinearLayout>
+
+    <!-- Denomination List (2 Columns on LEFT in Landscape) -->
+    <LinearLayout
+        android:id="@+id/layoutTable"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/margin_xlarge"
+        android:layout_marginTop="@dimen/margin_large"
+        android:layout_marginEnd="@dimen/margin_medium"
+        android:orientation="horizontal"
+        app:layout_constraintEnd_toStartOf="@id/layoutKeypad"
+        app:layout_constraintHorizontal_weight="0.45"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/layoutAmountDisplay">
+
+        <!-- Column 1: 500, 100, 50, 20 -->
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:orientation="vertical">
+
+            <!-- 500 Taka -->
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="@dimen/margin_normal"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/label_denom_500"
+                    android:textColor="@color/text_primary"
+                    android:textSize="@dimen/text_size_denom_label" />
+
+                <TextView
+                    android:id="@+id/tvCount500"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="@dimen/margin_small"
+                    android:text="@string/label_amount_default"
+                    android:textColor="@color/text_primary"
+                    android:textSize="@dimen/text_size_denom_label" />
+            </LinearLayout>
+
+            <!-- 100 Taka -->
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="@dimen/margin_normal"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/label_denom_100"
+                    android:textColor="@color/text_primary"
+                    android:textSize="@dimen/text_size_denom_label" />
+
+                <TextView
+                    android:id="@+id/tvCount100"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="@dimen/margin_small"
+                    android:text="@string/label_amount_default"
+                    android:textColor="@color/text_primary"
+                    android:textSize="@dimen/text_size_denom_label" />
+            </LinearLayout>
+
+            <!-- 50 Taka -->
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="@dimen/margin_normal"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/label_denom_50"
+                    android:textColor="@color/text_primary"
+                    android:textSize="@dimen/text_size_denom_label" />
+
+                <TextView
+                    android:id="@+id/tvCount50"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="@dimen/margin_small"
+                    android:text="@string/label_amount_default"
+                    android:textColor="@color/text_primary"
+                    android:textSize="@dimen/text_size_denom_label" />
+            </LinearLayout>
+
+            <!-- 20 Taka -->
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="@dimen/margin_normal"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/label_denom_20"
+                    android:textColor="@color/text_primary"
+                    android:textSize="@dimen/text_size_denom_label" />
+
+                <TextView
+                    android:id="@+id/tvCount20"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="@dimen/margin_small"
+                    android:text="@string/label_amount_default"
+                    android:textColor="@color/text_primary"
+                    android:textSize="@dimen/text_size_denom_label" />
+            </LinearLayout>
+        </LinearLayout>
+
+        <!-- Column 2: 10, 5, 2, 1 -->
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:orientation="vertical">
+
+            <!-- 10 Taka -->
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="@dimen/margin_normal"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/label_denom_10"
+                    android:textColor="@color/text_primary"
+                    android:textSize="@dimen/text_size_denom_label" />
+
+                <TextView
+                    android:id="@+id/tvCount10"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="@dimen/margin_small"
+                    android:text="@string/label_amount_default"
+                    android:textColor="@color/text_primary"
+                    android:textSize="@dimen/text_size_denom_label" />
+            </LinearLayout>
+
+            <!-- 5 Taka -->
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="@dimen/margin_normal"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/label_denom_5"
+                    android:textColor="@color/text_primary"
+                    android:textSize="@dimen/text_size_denom_label" />
+
+                <TextView
+                    android:id="@+id/tvCount5"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="@dimen/margin_small"
+                    android:text="@string/label_amount_default"
+                    android:textColor="@color/text_primary"
+                    android:textSize="@dimen/text_size_denom_label" />
+            </LinearLayout>
+
+            <!-- 2 Taka -->
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="@dimen/margin_normal"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/label_denom_2"
+                    android:textColor="@color/text_primary"
+                    android:textSize="@dimen/text_size_denom_label" />
+
+                <TextView
+                    android:id="@+id/tvCount2"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="@dimen/margin_small"
+                    android:text="@string/label_amount_default"
+                    android:textColor="@color/text_primary"
+                    android:textSize="@dimen/text_size_denom_label" />
+            </LinearLayout>
+
+            <!-- 1 Taka -->
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="@dimen/margin_normal"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/label_denom_1"
+                    android:textColor="@color/text_primary"
+                    android:textSize="@dimen/text_size_denom_label" />
+
+                <TextView
+                    android:id="@+id/tvCount1"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="@dimen/margin_small"
+                    android:text="@string/label_amount_default"
+                    android:textColor="@color/text_primary"
+                    android:textSize="@dimen/text_size_denom_label" />
+            </LinearLayout>
+        </LinearLayout>
+
+    </LinearLayout>
+
+    <!-- 4-Column Keypad Grid (RIGHT side in Landscape) -->
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/layoutKeypad"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/margin_medium"
+        android:layout_marginTop="@dimen/margin_large"
+        android:layout_marginEnd="@dimen/margin_xlarge"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_weight="0.55"
+        app:layout_constraintStart_toEndOf="@id/layoutTable"
+        app:layout_constraintTop_toBottomOf="@id/layoutAmountDisplay">
+
+        <!-- Row 1: 1, 2, 3, 4 -->
+        <Button
+            android:id="@+id/btnKey1"
+            android:layout_width="0dp"
+            android:layout_height="@dimen/keypad_btn_height_land"
+            android:layout_margin="@dimen/margin_tiny"
+            android:background="@drawable/bg_keypad_button"
+            android:text="@string/key_1"
+            android:textColor="@color/keypad_btn_text"
+            android:textSize="@dimen/text_size_keypad_btn"
+            android:textStyle="normal"
+            app:backgroundTint="@null"
+            app:layout_constraintEnd_toStartOf="@id/btnKey2"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <Button
+            android:id="@+id/btnKey2"
+            android:layout_width="0dp"
+            android:layout_height="@dimen/keypad_btn_height_land"
+            android:layout_margin="@dimen/margin_tiny"
+            android:background="@drawable/bg_keypad_button"
+            android:text="@string/key_2"
+            android:textColor="@color/keypad_btn_text"
+            android:textSize="@dimen/text_size_keypad_btn"
+            android:textStyle="normal"
+            app:backgroundTint="@null"
+            app:layout_constraintEnd_toStartOf="@id/btnKey3"
+            app:layout_constraintStart_toEndOf="@id/btnKey1"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <Button
+            android:id="@+id/btnKey3"
+            android:layout_width="0dp"
+            android:layout_height="@dimen/keypad_btn_height_land"
+            android:layout_margin="@dimen/margin_tiny"
+            android:background="@drawable/bg_keypad_button"
+            android:text="@string/key_3"
+            android:textColor="@color/keypad_btn_text"
+            android:textSize="@dimen/text_size_keypad_btn"
+            android:textStyle="normal"
+            app:backgroundTint="@null"
+            app:layout_constraintEnd_toStartOf="@id/btnKey4"
+            app:layout_constraintStart_toEndOf="@id/btnKey2"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <Button
+            android:id="@+id/btnKey4"
+            android:layout_width="0dp"
+            android:layout_height="@dimen/keypad_btn_height_land"
+            android:layout_margin="@dimen/margin_tiny"
+            android:background="@drawable/bg_keypad_button"
+            android:text="@string/key_4"
+            android:textColor="@color/keypad_btn_text"
+            android:textSize="@dimen/text_size_keypad_btn"
+            android:textStyle="normal"
+            app:backgroundTint="@null"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@id/btnKey3"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <!-- Row 2: 5, 6, 7, 8 -->
+        <Button
+            android:id="@+id/btnKey5"
+            android:layout_width="0dp"
+            android:layout_height="@dimen/keypad_btn_height_land"
+            android:layout_margin="@dimen/margin_tiny"
+            android:background="@drawable/bg_keypad_button"
+            android:text="@string/key_5"
+            android:textColor="@color/keypad_btn_text"
+            android:textSize="@dimen/text_size_keypad_btn"
+            android:textStyle="normal"
+            app:backgroundTint="@null"
+            app:layout_constraintEnd_toStartOf="@id/btnKey6"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/btnKey1" />
+
+        <Button
+            android:id="@+id/btnKey6"
+            android:layout_width="0dp"
+            android:layout_height="@dimen/keypad_btn_height_land"
+            android:layout_margin="@dimen/margin_tiny"
+            android:background="@drawable/bg_keypad_button"
+            android:text="@string/key_6"
+            android:textColor="@color/keypad_btn_text"
+            android:textSize="@dimen/text_size_keypad_btn"
+            android:textStyle="normal"
+            app:backgroundTint="@null"
+            app:layout_constraintEnd_toStartOf="@id/btnKey7"
+            app:layout_constraintStart_toEndOf="@id/btnKey5"
+            app:layout_constraintTop_toBottomOf="@id/btnKey2" />
+
+        <Button
+            android:id="@+id/btnKey7"
+            android:layout_width="0dp"
+            android:layout_height="@dimen/keypad_btn_height_land"
+            android:layout_margin="@dimen/margin_tiny"
+            android:background="@drawable/bg_keypad_button"
+            android:text="@string/key_7"
+            android:textColor="@color/keypad_btn_text"
+            android:textSize="@dimen/text_size_keypad_btn"
+            android:textStyle="normal"
+            app:backgroundTint="@null"
+            app:layout_constraintEnd_toStartOf="@id/btnKey8"
+            app:layout_constraintStart_toEndOf="@id/btnKey6"
+            app:layout_constraintTop_toBottomOf="@id/btnKey3" />
+
+        <Button
+            android:id="@+id/btnKey8"
+            android:layout_width="0dp"
+            android:layout_height="@dimen/keypad_btn_height_land"
+            android:layout_margin="@dimen/margin_tiny"
+            android:background="@drawable/bg_keypad_button"
+            android:text="@string/key_8"
+            android:textColor="@color/keypad_btn_text"
+            android:textSize="@dimen/text_size_keypad_btn"
+            android:textStyle="normal"
+            app:backgroundTint="@null"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@id/btnKey7"
+            app:layout_constraintTop_toBottomOf="@id/btnKey4" />
+
+        <!-- Row 3: 9, 0, CLEAR (CLEAR spans 2 cols) -->
+        <Button
+            android:id="@+id/btnKey9"
+            android:layout_width="0dp"
+            android:layout_height="@dimen/keypad_btn_height_land"
+            android:layout_margin="@dimen/margin_tiny"
+            android:background="@drawable/bg_keypad_button"
+            android:text="@string/key_9"
+            android:textColor="@color/keypad_btn_text"
+            android:textSize="@dimen/text_size_keypad_btn"
+            android:textStyle="normal"
+            app:backgroundTint="@null"
+            app:layout_constraintEnd_toStartOf="@id/btnKey0"
+            app:layout_constraintHorizontal_weight="1"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/btnKey5" />
+
+        <Button
+            android:id="@+id/btnKey0"
+            android:layout_width="0dp"
+            android:layout_height="@dimen/keypad_btn_height_land"
+            android:layout_margin="@dimen/margin_tiny"
+            android:background="@drawable/bg_keypad_button"
+            android:text="@string/key_0"
+            android:textColor="@color/keypad_btn_text"
+            android:textSize="@dimen/text_size_keypad_btn"
+            android:textStyle="normal"
+            app:backgroundTint="@null"
+            app:layout_constraintEnd_toStartOf="@id/btnKeyClear"
+            app:layout_constraintHorizontal_weight="1"
+            app:layout_constraintStart_toEndOf="@id/btnKey9"
+            app:layout_constraintTop_toBottomOf="@id/btnKey6" />
+
+        <Button
+            android:id="@+id/btnKeyClear"
+            android:layout_width="0dp"
+            android:layout_height="@dimen/keypad_btn_height_land"
+            android:layout_margin="@dimen/margin_tiny"
+            android:background="@drawable/bg_keypad_button"
+            android:text="@string/label_clear"
+            android:textColor="@color/keypad_btn_text"
+            android:textSize="@dimen/text_size_keypad_btn"
+            android:textStyle="normal"
+            app:backgroundTint="@null"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_weight="2"
+            app:layout_constraintStart_toEndOf="@id/btnKey0"
+            app:layout_constraintTop_toBottomOf="@id/btnKey7" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

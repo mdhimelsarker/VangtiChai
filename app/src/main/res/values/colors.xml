@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- Primary App Header Color -->
+    <color name="bdt_green_header">#00796B</color>
+
+    <!-- Backgrounds -->
+    <color name="background_main">#FFFFFF</color>
+
+    <!-- Text Colors -->
+    <color name="text_primary">#000000</color>
+    <color name="text_white">#FFFFFF</color>
+
+    <!-- Keypad Button Colors -->
+    <color name="keypad_btn_bg">#E0E0E0</color>
+    <color name="keypad_btn_pressed">#BDBDBD</color>
+    <color name="keypad_btn_text">#000000</color>
+</resources>

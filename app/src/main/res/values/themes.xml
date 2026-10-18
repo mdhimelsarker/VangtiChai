@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <style name="Theme.VangtiChai" parent="Theme.MaterialComponents.DayNight.NoActionBar">
+        <!-- Primary brand color -->
+        <item name="colorPrimary">@color/bdt_green_header</item>
+        <item name="colorPrimaryVariant">@color/bdt_green_header</item>
+        <item name="colorOnPrimary">@color/text_white</item>
+
+        <!-- Secondary brand color -->
+        <item name="colorSecondary">@color/bdt_green_header</item>
+        <item name="colorSecondaryVariant">@color/bdt_green_header</item>
+        <item name="colorOnSecondary">@color/text_white</item>
+
+        <!-- Status bar color -->
+        <item name="android:statusBarColor">@color/bdt_green_header</item>
+        <item name="android:windowBackground">@color/background_main</item>
+    </style>
+</resources>
