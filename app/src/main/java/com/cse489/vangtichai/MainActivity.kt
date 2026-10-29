@@ -31,8 +31,8 @@ class MainActivity : AppCompatActivity() {
     }
 
     override fun onSaveInstanceState(outState: Bundle) {
-        super.onSaveInstanceState(outState)
         outState.putString(KEY_CURRENT_AMOUNT, currentAmountString)
+        super.onSaveInstanceState(outState)
     }
 
     private fun setupKeypadListeners() {
@@ -84,7 +84,9 @@ class MainActivity : AppCompatActivity() {
         val amount = currentAmountString.toLongOrNull() ?: 0L
         val notesMap = DenominationCalculator.calculateNotesMap(amount)
 
+        binding.tvCount1000?.text = (notesMap[1000] ?: 0L).toString()
         binding.tvCount500.text = (notesMap[500] ?: 0L).toString()
+        binding.tvCount200.text = (notesMap[200] ?: 0L).toString()
         binding.tvCount100.text = (notesMap[100] ?: 0L).toString()
         binding.tvCount50.text = (notesMap[50] ?: 0L).toString()
         binding.tvCount20.text = (notesMap[20] ?: 0L).toString()

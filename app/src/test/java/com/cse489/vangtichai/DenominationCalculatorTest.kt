@@ -8,7 +8,9 @@ class DenominationCalculatorTest {
     @Test
     fun testZeroAmount() {
         val result = DenominationCalculator.calculateNotesMap(0)
+        assertEquals(0L, result[1000])
         assertEquals(0L, result[500])
+        assertEquals(0L, result[200])
         assertEquals(0L, result[100])
         assertEquals(0L, result[50])
         assertEquals(0L, result[20])
@@ -21,8 +23,10 @@ class DenominationCalculatorTest {
     @Test
     fun testAssignmentExample786() {
         val result = DenominationCalculator.calculateNotesMap(786)
+        assertEquals(0L, result[1000])
         assertEquals(1L, result[500])
-        assertEquals(2L, result[100])
+        assertEquals(1L, result[200])
+        assertEquals(0L, result[100])
         assertEquals(1L, result[50])
         assertEquals(1L, result[20])
         assertEquals(1L, result[10])
@@ -36,7 +40,9 @@ class DenominationCalculatorTest {
 
     @Test
     fun testSingleDenominationAmounts() {
+        assertEquals(1L, DenominationCalculator.calculateNotesMap(1000)[1000])
         assertEquals(1L, DenominationCalculator.calculateNotesMap(500)[500])
+        assertEquals(1L, DenominationCalculator.calculateNotesMap(200)[200])
         assertEquals(1L, DenominationCalculator.calculateNotesMap(100)[100])
         assertEquals(1L, DenominationCalculator.calculateNotesMap(50)[50])
         assertEquals(1L, DenominationCalculator.calculateNotesMap(20)[20])

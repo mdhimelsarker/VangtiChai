@@ -15,7 +15,7 @@ data class DenominationResult(
 object DenominationCalculator {
 
     // Supported BDT denominations in exact required order: 500, 100, 50, 20, 10, 5, 2, 1
-    val SUPPORTED_DENOMINATIONS = listOf(500, 100, 50, 20, 10, 5, 2, 1)
+    val SUPPORTED_DENOMINATIONS = listOf(1000, 500, 200, 100, 50, 20, 10, 5, 2, 1)
 
     /**
      * Calculates note counts for each denomination using the greedy approach.
